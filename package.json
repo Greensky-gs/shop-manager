@@ -1,6 +1,6 @@
 {
   "name": "shop-manager",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "files": [
@@ -35,5 +35,8 @@
     },
     "./src/*": "./dist/*",
     "./dist/*": "./dist/*"
+  },
+  "scripts": {
+    "build": "yarn tsc -b"
   }
 }
