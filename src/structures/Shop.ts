@@ -25,6 +25,38 @@ export default class ShopManager {
     public guildItems(guild: guildResolvable) {
         return this._items.filter((x) => x.guild_id === this.getGuild(guild));
     }
+    public async updateName(guild: guildResolvable, itemId: number, name: string) {
+        const item = this.guildItems(guild).find(x => x.id === itemId)
+
+        if (!item) return 'no item'
+        item.name = name
+
+        this.items.set(item.id, item)
+        await this.query(`UPDATE items SET name="${this.sqlise(name)}" WHERE id='${item.id}'`)
+        return true
+    }
+    public async updateContent(guild: guildResolvable, itemId: number, content: string) {
+        const item = this.guildItems(guild).find(x => x.id === itemId)
+
+        if (!item) return 'no item'
+        item.content = content
+
+        this.items.set(item.id, item)
+        await this.query(`UPDATE items SET content="${this.sqlise(content)}" WHERE id='${item.id}'`)
+        return true
+    }
+    public async updatePrice(guild: guildResolvable, itemId: number, price: number) {
+        const item = this.guildItems(guild).find((x) => x.id === itemId);
+
+        if (!item) return 'no item';
+        item.price = price * (price < 0 ? -1 : 1)
+
+        this.items.set(item.id, item);
+        await this.query(
+            `UPDATE items SET price='${item.price}' WHERE id='${item.id}'`
+        );
+        return true;
+    }
     public async updateRemaining(guild: guildResolvable, itemId: number, quantity: number) {
         const item = this.guildItems(guild).find((x) => x.id === itemId);
 

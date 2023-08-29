@@ -129,6 +129,33 @@ export class ShopManager {
      * @returns {Promise<'no item' | 'set as infinite, but no value' | true>} Returns 'no item' when no item is found. Returns 'set as not infinite, but no value' when switch to not infinite and no value is specified. Returns true once the request to the database is done
      */
     public setInfinite(guild: guildResolvable, itemId: number, infinite: boolean, value?: number): Promise<'no item' | 'set as not infinite, but no value' | true>
+    /**
+     * Update the price of an item
+     * 
+     * @param guild `guildResolvable` Anything that can give a guild
+     * @param itemId `number` The id of the item
+     * @param price `number` New price of the item
+     * @returns {Promise<'no item' | true>} Returns 'no item' when no item is found. Returns true when the request to the database is done
+     */
+    public updatePrice(guild: guildResolvable, itemId: number, price: number): Promise<'no item' | true>
+    /**
+     * Update the content of an item
+     * 
+     * @param guild `guildResolvable` Anything that can give a guild
+     * @param itemId `number` The id of the item
+     * @param content `string` New content of the item
+     * @returns {Promise<'no item' | true>} Returns 'no item' when no item is found. Returns true when the request to the database is done
+     */
+    public updateContent(guild: guildResolvable, itemId: number, content: string): Promise<'no item' | true>
+    /**
+     * Update the name of an item
+     * 
+     * @param guild `guildResolvable` Anything that can give a guild
+     * @param itemId `number` The id of the item
+     * @param name `string` New name of the item
+     * @returns {Promise<'no item' | true>} Returns 'no item' when no item is found. Returns true when the request to the database is done
+     */
+    public updateName(guild: guildResolvable, itemId: number, name: string): Promise<'no item' | true>
 }
 
 export { DefaultQueryResult, QueryResult, addOptions, inventory, item, inventoryItem, userResolvable, guildResolvable, itemType }

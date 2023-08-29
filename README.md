@@ -268,6 +268,66 @@ Parameters :
 * `infinite` : boolean
 * `value` : number. This is optional, but must be specified when `infinite` is `false`
 
+#### updatePrice
+
+Update the price of an item
+
+```js
+manager.updatePrice(message.guild, 5, 10000); // Set the price of the item with id 5 to 10000
+```
+
+Parameters :
+
+* `guild` : [guild resolvable](#guild-resolvable)
+* `itemId` : number, corresponding to an item ID
+* `price` : number, this is the new price
+
+Returns `Promise<'no item' | true>`.
+
+The promise returns `'no item'` when no item is found
+
+The promise returns `true` when everything is done
+
+#### updateName
+
+Update the name of an item
+
+```js
+manager.updateName(message.guild, 6, "Sword"); // Set the name of the item with id 6 to 'Sword'
+```
+
+Parameters :
+
+* `guild` : [guild resolvable](#guild-resolvable)
+* `itemId` : number, corresponding to an item ID
+* `name` : string, this is the new name
+
+Returns `Promise<'no item' | true>`.
+
+The promise returns `'no item'` when no item is found
+
+The promise returns `true` when everything is done
+
+#### updateContent
+
+Update the content of an item
+
+```js
+manager.updatePrice(message.guild, 3, 'The best item you can find on the marketplace.'); // Update the content of the item with id 3
+```
+
+Parameters :
+
+* `guild` : [guild resolvable](#guild-resolvable)
+* `itemId` : number, corresponding to an item ID
+* `content` : string, this is the new content
+
+Returns `Promise<'no item' | true>`.
+
+The promise returns `'no item'` when no item is found
+
+The promise returns `true` when everything is done
+
 ### Types
 
 Types of the manager
