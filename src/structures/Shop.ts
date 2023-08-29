@@ -190,11 +190,12 @@ export default class ShopManager {
             items: []
         };
     }
-    private getInventory(guild_id: string, user_id: string) {
-        const guild = this.getGuildInventories(guild_id);
-        if (!guild.has(user_id)) guild.set(user_id, this.defaultInventoryData(guild_id, user_id));
+    public getInventory(guild: guildResolvable, user: userResolvable) {
+        const inventories = this.getGuildInventories(this.getGuild(guild));
+        if (!inventories.has(this.getUser(user)))
+            inventories.set(this.getUser(user), this.defaultInventoryData(this.getGuild(guild), this.getUser(user)));
 
-        return guild.get(user_id);
+        return inventories.get(this.getUser(user));
     }
     private setInventory(guild_id: string, user_id: string, value: inventory) {
         this.getInventory(guild_id, user_id);

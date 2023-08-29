@@ -48,6 +48,14 @@ export class ShopManager {
      */
     public guildItems(guild: guildResolvable): Collection<number, item>;
     /**
+     * Get the inventory of an user
+     * 
+     * @param guild `guildResolvable` Anything that can give a guild
+     * @param user `userResolvable` Anything that can give a user
+     * @returns {inventory} The inventory of the user. If not cached, the default is returned
+     */
+    public getInventory(guild: guildResolvable, user: userResolvable): inventory;
+    /**
      * Add an item to a guild's shop
      * 
      * @returns {Promise<item | 'no reply from database'>}

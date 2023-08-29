@@ -157,6 +157,21 @@ Parameters :
 * `item` : [item](#item)
 * `quantity` : number. This is optional
 
+#### getInventory
+
+Get the inventory of an user in a guild
+
+```js
+manager.getInventory(message.guild, message.author);
+```
+
+Return an [inventory object](#inventory)
+
+Parameters :
+
+* `guild` : [guild resolvable](#guild-resolvable)
+* `user` : [user resolvable](#user-resolvable)
+
 #### buyItem
 
 Removes an item from the shop and add it in the inventory of the user
