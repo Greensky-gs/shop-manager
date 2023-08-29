@@ -301,7 +301,7 @@ type itemType = 'string' | 'role'
 type inventory<Raw extends boolean = false> = {
     guild_id: string;
     user_id: string;
-    items: If<Raw, string, inventoryItem[]>; // { name: string; content: string; price: number; id: number; }[]
+    items: If<Raw, string, inventoryItem[]>; // { name: string; content: string; price: number; id: number; type: itemType; }[]
 }
 ```
 
@@ -314,8 +314,13 @@ type inventoryItem = {
     quantity: number;
     price: number;
     id: number;
+    type: itemType;
 }
 ```
+
+Types :
+
+* [itemType](#itemtype)
 
 #### guild resolvable
 

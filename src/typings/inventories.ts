@@ -1,4 +1,5 @@
 import { If } from 'discord.js';
+import { itemType } from './item';
 
 export type inventoryItem = {
     name: string;
@@ -6,6 +7,7 @@ export type inventoryItem = {
     quantity: number;
     content: string;
     id: number;
+    type: itemType
 };
 export type inventory<Raw extends boolean = false> = {
     guild_id: string;

@@ -119,7 +119,8 @@ export default class ShopManager {
                 content: item.content,
                 price: item.price,
                 quantity,
-                id: item.id
+                id: item.id,
+                type: item.type
             });
         }
 
